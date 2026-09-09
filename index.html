@@ -1,101 +1,165 @@
-<h1>halooo semuaaaaa</h1>
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magic Card Redmi Pad</title>
+    <title>Dunia Informatika</title>
     <style>
-        /* Mengatur latar belakang menjadi gelap dan elemen di tengah */
+        /* Mengatur tema dasar gelap yang elegan */
         body {
             margin: 0;
-            height: 100vh;
+            padding: 40px 20px;
+            background-color: #0b0f19;
+            color: #f0f6fc;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            background-color: #0d1117;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #58a6ff;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            color: #8b949e;
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* Pembungkus kartu agar rapi sejajar */
+        .container {
+            display: flex;
+            gap: 20px;
+            max-width: 900px;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         /* Desain Kartu Utama */
-        .card {
-            position: relative;
-            width: 300px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+        .box {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 24px;
+            width: 250px;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* Efek Cahaya Neon di Belakang Kartu */
-        .card::before {
-            content: '';
-            position: absolute;
-            top: -2px; left: -2px; right: -2px; bottom: -2px;
-            background: linear-gradient(45deg, #ff007f, #7f00ff, #00f0ff, #ff007f);
-            border-radius: 22px;
-            z-index: -1;
-            background-size: 400%;
-            filter: blur(20px);
-            opacity: 0.8;
-            animation: gantiWarna 10s linear infinite;
+        /* Efek saat jari menyentuh kartu di tablet */
+        .box:hover {
+            transform: translateY(-5px);
+            border-color: #58a6ff;
+            box-shadow: 0 8px 30px rgba(88, 166, 255, 0.1);
         }
 
-        /* Animasi Pergerakan Cahaya Neon */
-        @keyframes gantiWarna {
-            0% { background-position: 0 0; }
-            50% { background-position: 300% 0; }
-            100% { background-position: 0 0; }
+        .box h3 {
+            margin: 0 0 12px 0;
+            color: #58a6ff;
+            font-size: 1.3rem;
         }
 
-        h2 {
-            margin: 0 0 10px 0;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .box p {
+            margin: 0;
+            color: #c9d1d9;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
-        p {
-            font-size: 0.9rem;
-            color: #8b949e;
+        /* Area detail informasi yang tersembunyi */
+        .info-panel {
+            margin-top: 40px;
+            padding: 20px;
+            max-width: 860px;
+            width: 90%;
+            background: rgba(88, 166, 255, 0.05);
+            border-left: 4px solid #58a6ff;
+            border-radius: 4px 12px 12px 4px;
+            display: none; /* Sembunyikan di awal */
+            animation: muncul 0.4s ease forwards;
+        }
+
+        .info-panel h4 {
+            margin: 0 0 8px 0;
+            color: #58a6ff;
+            font-size: 1.2rem;
+        }
+
+        @keyframes muncul {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Elemen Kartu -->
-    <div class="card" onclick="sentuhKartu()">
-        <h2 id="judul">Ketuk Aku!</h2>
-        <p id="pesan">Kode pertama saya di Redmi Pad Pro</p>
+    <h1>Eksplorasi Informatika</h1>
+    <p class="subtitle">Ketuk salah satu pilar utama ilmu komputer di bawah ini</p>
+
+    <div class="container">
+        <!-- Kartu 1 -->
+        <div class="box" onclick="tampilInfo('ai')">
+            <h3>🤖 AI</h3>
+            <p>Kecerdasan Buatan yang membuat mesin mampu berpikir dan belajar seperti manusia.</p>
+        </div>
+
+        <!-- Kartu 2 -->
+        <div class="box" onclick="tampilInfo('cyber')">
+            <h3>🔒 Cyber Security</h3>
+            <p>Ilmu garda terdepan untuk melindungi sistem dan data dari serangan digital berbahaya.</p>
+        </div>
+
+        <!-- Kartu 3 -->
+        <div class="box" onclick="tampilInfo('dev')">
+            <h3>💻 Software Eng</h3>
+            <p>Proses merancang, menulis kode, dan membangun aplikasi yang kita gunakan sehari-hari.</p>
+        </div>
+    </div>
+
+    <!-- Panel Informasi Interaktif -->
+    <div id="panel" class="info-panel">
+        <h4 id="panel-title">Judul</h4>
+        <p id="panel-desc">Deskripsi lengkap...</p>
     </div>
 
     <script>
-        // Efek interaktif unik saat layar tablet diketuk
-        function sentuhKartu() {
-            const judul = document.getElementById('judul');
-            const pesan = document.getElementById('pesan');
-            
-            // Mengubah teks secara acak saat diketuk
-            if (judul.innerText === "Ketuk Aku!") {
-                judul.innerText = "✨ MAGIC! ✨";
-                judul.style.color = "#00f0ff";
-                pesan.innerText = "Kodenya berhasil berjalan dengan lancar!";
-            } else {
-                judul.innerText = "Ketuk Aku!";
-                judul.style.color = "white";
-                pesan.innerText = "Kode pertama saya di Redmi Pad Pro";
-            }
+        // Logika interaktif untuk menampilkan info detail saat kartu diketuk
+        function tampilInfo(topik) {
+            const panel = document.getElementById('panel');
+            const title = document.getElementById('panel-title');
+            const desc = document.getElementById('panel-desc');
+
+            // Data teks informasi informatika
+            const data = {
+                ai: {
+                    judul: "Kecerdasan Buatan (Artificial Intelligence)",
+                    teks: "AI mencakup teknologi modern seperti Machine Learning dan Deep Learning. Teknologi ini digunakan pada ChatGPT, mobil otonom tanpa pengemudi, hingga algoritma rekomendasi di YouTube dan TikTok Anda."
+                },
+                cyber: {
+                    judul: "Keamanan Siber (Cyber Security)",
+                    teks: "Fokus pada perlindungan jaringan, enkripsi data, dan pencegahan peretasan. Di era digital saat ini, keahlian ini sangat krusial untuk melindungi privasi data pribadi dan infrastruktur penting negara."
+                },
+                dev: {
+                    judul: "Rekayasa Perangkat Lunak (Software Engineering)",
+                    teks: "Bukan sekadar mengetik kode, pilar ini mempelajari arsitektur kode yang rapi, pembuatan database, hingga sistem cloud. Halaman web yang sedang Anda bangun saat ini adalah produk dari pilar ini!"
+                }
+            };
+
+            // Masukkan data sesuai kartu yang diketuk
+            title.innerText = data[topik].judul;
+            desc.innerText = data[topik].teks;
+
+            // Tampilkan panel dengan animasi
+            panel.style.display = "block";
         }
     </script>
 </body>

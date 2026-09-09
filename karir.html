@@ -3,44 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prospek Karir Informatika</title>
+    <title>Informatika Hub - Karir</title>
     <style>
+        * { box-sizing: border-box; }
         body {
-            margin: 0;
-            background-color: #0d1117;
-            color: #c9d1d9;
-            font-family: 'Segoe UI', sans-serif;
+            margin: 0; background-color: #030712; color: #f3f4f6;
+            font-family: system-ui, sans-serif; padding-top: 100px;
         }
         nav {
-            background-color: #161b22;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            border-bottom: 1px solid #30363d;
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(3, 7, 18, 0.7); backdrop-filter: blur(12px);
+            padding: 20px; display: flex; justify-content: center; gap: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); z-index: 1000;
         }
-        nav a {
-            color: #58a6ff;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .content {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-        h1 { color: #ff7b72; }
-        .job-grid {
+        nav a { color: #9ca3af; text-decoration: none; font-weight: 500; }
+        nav a:hover { color: #60a5fa; }
+
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        h1 { color: #34d399; font-size: 2.5rem; text-align: center; }
+
+        .grid-karir {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
-        .job-card {
-            background: #161b22;
-            border-left: 4px solid #ff7b72;
-            padding: 15px;
-            border-radius: 0 8px 8px 0;
+        .box-karir {
+            background: #0b0f19;
+            border: 1px solid #1f2937;
+            border-radius: 16px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        /* Garis menyala sensorik saat disentuh */
+        .box-karir::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+            background: #34d399; opacity: 0.3; transition: all 0.3s ease;
+        }
+        .box-karir:hover {
+            transform: translateY(-5px);
+            border-color: rgba(52, 211, 153, 0.4);
+            box-shadow: 0 10px 30px rgba(52, 211, 153, 0.05);
+        }
+        .box-karir:hover::before {
+            opacity: 1;
+            box-shadow: 0 0 15px #34d399;
         }
     </style>
 </head>
@@ -49,21 +58,19 @@
     <nav>
         <a href="index.html">🏠 Beranda</a>
         <a href="coding.html">💻 Info Coding</a>
-        <a href="karir.html" style="color: white;">🚀 Karir IT</a>
+        <a href="karir.html" style="color: #34d399; text-shadow: 0 0 10px rgba(52, 211, 153, 0.5);">🚀 Karir IT</a>
     </nav>
 
-    <div class="content">
-        <h1>Peluang Karir di Bidang Informatika</h1>
-        <p>Lulusan atau talenta di bidang Informatika sangat dicari di era digital. Berikut adalah beberapa profesi masa depan yang menjanjikan:</p>
-
-        <div class="job-grid">
-            <div class="job-card">
-                <h3>Frontend Developer</h3>
-                <p>Bertanggung jawab membangun bagian visual website yang berinteraksi langsung dengan pengguna.</p>
+    <div class="container">
+        <h1>Industri & Karir Global</h1>
+        <div class="grid-karir">
+            <div class="box-karir">
+                <h3 style="color: #34d399; margin-top:0;">Cloud Engineer</h3>
+                <p style="color: #9ca3af; margin:0; font-size:0.95rem;">Mengelola arsitektur server awan raksasa internet seperti AWS, Google Cloud, atau Azure.</p>
             </div>
-            <div class="job-card">
-                <h3>Data Scientist</h3>
-                <p>Mengolah data berukuran raksasa untuk diubah menjadi strategi bisnis perusahaan.</p>
+            <div class="box-karir">
+                <h3 style="color: #34d399; margin-top:0;">AI Developer</h3>
+                <p style="color: #9ca3af; margin:0; font-size:0.95rem;">Menciptakan kecerdasan pintar berbasis logika jaringan saraf tiruan modern.</p>
             </div>
         </div>
     </div>

@@ -5,74 +5,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informatika Hub - Beranda</title>
     <style>
+        * { box-sizing: border-box; scroll-behavior: smooth; }
         body {
             margin: 0;
-            padding: 0;
-            background-color: #0d1117;
-            color: #c9d1d9;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #030712;
+            color: #f3f4f6;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow-x: hidden;
         }
-        /* Desain Menu Navigasi Atas */
+
+        /* Navigasi Melayang yang Elegan */
         nav {
-            background-color: #161b22;
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            background: rgba(3, 7, 18, 0.7);
+            backdrop-filter: blur(12px);
             padding: 20px;
             display: flex;
             justify-content: center;
-            gap: 30px;
-            border-bottom: 1px solid #30363d;
+            gap: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 1000;
         }
         nav a {
-            color: #58a6ff;
+            color: #9ca3af;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        nav a:hover, nav a.active {
+            color: #60a5fa;
+            text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+        }
+
+        /* Konten Utama (Hero Section) */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 60px;
+            background: radial-gradient(circle at 50% 30%, rgba(59, 130, 246, 0.15), transparent 60%);
+        }
+
+        /* Efek Teks Menyala Canggih */
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 0 0 20px;
+            background: linear-gradient(to right, #ffffff, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glowText 3s ease-in-out infinite alternate;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #9ca3af;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* Tombol Animasi Premium */
+        .btn {
+            margin-top: 40px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 9999px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #f0f6fc;
-        }
-        /* Konten Utama */
-        .hero {
-            max-width: 800px;
-            margin: 80px auto;
-            text-align: center;
-            padding: 0 20px;
-        }
-        h1 {
-            color: #f0f6fc;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 30px;
-            background-color: #238636;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+            transition: all 0.3s ease;
         }
         .btn:hover {
-            background-color: #2ea44f;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.5);
+        }
+
+        /* Bagian Fitur yang Bisa Di-scroll */
+        .scroll-section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .preview-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .preview-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(96, 165, 250, 0.3);
+            transform: translateY(-8px);
+        }
+        .preview-card h3 { color: #60a5fa; margin-top: 0; }
+
+        @keyframes glowText {
+            0% { filter: drop-shadow(0 0 2px rgba(255,255,255,0.1)); }
+            100% { filter: drop-shadow(0 0 15px rgba(96, 165, 250, 0.3)); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Menu Navigasi untuk pindah file -->
     <nav>
-        <a href="index.html">🏠 Beranda</a>
+        <a href="index.html" class="active">🏠 Beranda</a>
         <a href="coding.html">💻 Info Coding</a>
         <a href="karir.html">🚀 Karir IT</a>
     </nav>
 
     <div class="hero">
-        <h1>Selamat Datang di Dunia Informatika</h1>
-        <p>Platform edukasi digital untuk mempelajari pilar-pilar penting teknologi masa depan, mulai dari menulis baris kode pertama hingga perencanaan karir di industri teknologi informasi.</p>
-        <!-- Tombol langsung menuju file coding.html -->
-        <a href="coding.html" class="btn">Mulai Belajar Coding</a>
+        <h1>Masa Depan Informatika</h1>
+        <p>Jelajahi dunia teknologi, pelajari seni menulis kode, dan temukan karir impian Anda di industri digital global terdepan.</p>
+        <a href="#eksplorasi" class="btn">Scroll ke Bawah</a>
+    </div>
+
+    <!-- Halaman Utama ini bisa di-scroll ke bawah untuk melihat ringkasan -->
+    <div id="eksplorasi" class="scroll-section">
+        <h2 style="text-align: center; font-size: 2rem;">Menu Utama Platform</h2>
+        <div class="grid">
+            <div class="preview-card">
+                <h3>01 / Dunia Coding</h3>
+                <p>Pelajari berbagai bahasa pemrograman modern, logika komputasi, dan struktur data.</p>
+                <a href="coding.html" style="color: #a78bfa; text-decoration: none; font-weight: bold;">Buka Halaman →</a>
+            </div>
+            <div class="preview-card">
+                <h3>02 / Navigasi Karir</h3>
+                <p>Persiapkan diri Anda untuk profesi paling dicari di masa depan dengan gaji tinggi.</p>
+                <a href="karir.html" style="color: #a78bfa; text-decoration: none; font-weight: bold;">Buka Halaman →</a>
+            </div>
+        </div>
     </div>
 
 </body>

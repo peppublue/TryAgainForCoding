@@ -10,27 +10,59 @@
             margin: 0;
             background-color: #030712;
             color: #f3f4f6;
-            font-family: system-ui, sans-serif;
+            font-family: system-ui, -apple-system, sans-serif;
             padding-top: 100px;
         }
-        nav {
-            position: fixed; top: 0; left: 0; width: 100%;
-            background: rgba(3, 7, 18, 0.7); backdrop-filter: blur(12px);
-            padding: 20px; display: flex; justify-content: center; gap: 40px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05); z-index: 1000;
+        
+        /* Tombol Kembali Minimalis & Elegan */
+        .back-nav {
+            position: fixed;
+            top: 25px;
+            left: 25px;
+            z-index: 1000;
         }
-        nav a { color: #9ca3af; text-decoration: none; font-weight: 500; }
-        nav a:hover { color: #60a5fa; }
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #9ca3af;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 9999px;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+        .btn-back:hover {
+            color: #c084fc;
+            border-color: rgba(192, 132, 252, 0.4);
+            background: rgba(192, 132, 252, 0.05);
+            transform: translateX(-3px);
+            box-shadow: 0 0 15px rgba(192, 132, 252, 0.2);
+        }
         
         .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        h1 { color: #c084fc; font-size: 2.5rem; text-align: center; }
+        h1 { 
+            color: #c084fc; 
+            font-size: 2.5rem; 
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(192, 132, 252, 0.2);
+        }
+        .subtitle {
+            text-align: center;
+            color: #9ca3af;
+            margin-bottom: 40px;
+        }
         
         /* List Kartu Berwarna Gradasi Canggih */
         .tech-stack {
             display: flex;
             flex-direction: column;
             gap: 20px;
-            margin-top: 40px;
         }
         .tech-card {
             background: linear-gradient(rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.03));
@@ -59,14 +91,15 @@
 </head>
 <body>
 
-    <nav>
-        <a href="index.html">🏠 Beranda</a>
-        <a href="coding.html" style="color: #c084fc; text-shadow: 0 0 10px rgba(192, 132, 252, 0.5);">💻 Info Coding</a>
-        <a href="karir.html">🚀 Karir IT</a>
-    </nav>
+    <!-- Navigasi Tombol Balik Saja -->
+    <div class="back-nav">
+        <a href="index.html" class="btn-back">← Kembali</a>
+    </div>
 
     <div class="container">
         <h1>Arsitektur Kode & Bahasa</h1>
+        <p class="subtitle">Eksplorasi bahasa pemrograman terbaik untuk masa depan digital Anda</p>
+        
         <div class="tech-stack">
             <div class="tech-card">
                 <div>

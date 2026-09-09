@@ -3,163 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dunia Informatika</title>
+    <title>Spesial Buat Kamu</title>
     <style>
-        /* Mengatur tema dasar gelap yang elegan */
+        /* Mengatur latar belakang hitam pekat dan elemen di tengah */
         body {
             margin: 0;
-            padding: 40px 20px;
-            background-color: #0b0f19;
-            color: #f0f6fc;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        h1 {
-            color: #58a6ff;
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            text-align: center;
-            letter-spacing: 1px;
-        }
-
-        .subtitle {
-            color: #8b949e;
-            margin-bottom: 40px;
-            text-align: center;
-            font-size: 1.1rem;
-        }
-
-        /* Pembungkus kartu agar rapi sejajar */
-        .container {
-            display: flex;
-            gap: 20px;
-            max-width: 900px;
-            width: 100%;
             justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
+            background-color: #050505;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
         }
 
-        /* Desain Kartu Utama */
-        .box {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 16px;
-            padding: 24px;
-            width: 250px;
+        /* Wadah untuk menampung animasi Love */
+        .heart-container {
+            position: relative;
+            width: 100px;
+            height: 90px;
+            animation: degup 0.8s infinite alternate cubic-bezier(0.25, 0.8, 0.25, 1);
+            filter: drop-shadow(0 0 20px #ff2a74) drop-shadow(0 0 40px #ff2a74);
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* Efek saat jari menyentuh kartu di tablet */
-        .box:hover {
-            transform: translateY(-5px);
-            border-color: #58a6ff;
-            box-shadow: 0 8px 30px rgba(88, 166, 255, 0.1);
+        /* Membuat bentuk hati dengan teknik CSS Pseudo-elements */
+        .heart-container::before,
+        .heart-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 50px;
+            height: 80px;
+            background: linear-gradient(to bottom, #ff2a74, #ff0040);
+            border-radius: 50px 50px 0 0;
         }
 
-        .box h3 {
-            margin: 0 0 12px 0;
-            color: #58a6ff;
+        .heart-container::before {
+            left: 50px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart-container::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100%;
+        }
+
+        /* Animasi Jantung Berdegup (Heartbeat) */
+        @keyframes degup {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.25);
+            }
+        }
+
+        /* Teks Elegan di Bawah Hati */
+        .pesan {
+            margin-top: 50px;
+            color: #ffffff;
             font-size: 1.3rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 300;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            animation: munculTeks 2s ease forwards 0.5s;
         }
 
-        .box p {
-            margin: 0;
-            color: #c9d1d9;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        /* Area detail informasi yang tersembunyi */
-        .info-panel {
-            margin-top: 40px;
-            padding: 20px;
-            max-width: 860px;
-            width: 90%;
-            background: rgba(88, 166, 255, 0.05);
-            border-left: 4px solid #58a6ff;
-            border-radius: 4px 12px 12px 4px;
-            display: none; /* Sembunyikan di awal */
-            animation: muncul 0.4s ease forwards;
-        }
-
-        .info-panel h4 {
-            margin: 0 0 8px 0;
-            color: #58a6ff;
-            font-size: 1.2rem;
-        }
-
-        @keyframes muncul {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes munculTeks {
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
 
-    <h1>Eksplorasi Informatika</h1>
-    <p class="subtitle">jangan di kasih tawu syapa syap</p>
+    <!-- Elemen Animasi Hati -->
+    <div class="heart-container" onclick="tambahEfek()"></div>
 
-    <div class="container">
-        <!-- Kartu 1 -->
-        <div class="box" onclick="tampilInfo('ai')">
-            <h3>🤖 AI</h3>
-            <p>budak progammer awkakwkawkaw</p>
-        </div>
-
-        <!-- Kartu 2 -->
-        <div class="box" onclick="tampilInfo('cyber')">
-            <h3>🔒 Cyber Security</h3>
-            <p>Ilmu garda terdepan untuk melindungi sistem dan data dari serangan digital berbahaya.</p>
-        </div>
-
-        <!-- Kartu 3 -->
-        <div class="box" onclick="tampilInfo('dev')">
-            <h3>💻 Software Eng</h3>
-            <p>Proses merancang, menulis kode, dan membangun aplikasi yang kita gunakan sehari-hari.</p>
-        </div>
-    </div>
-
-    <!-- Panel Informasi Interaktif -->
-    <div id="panel" class="info-panel">
-        <h4 id="panel-title">Judul</h4>
-        <p id="panel-desc">Deskripsi lengkap...</p>
-    </div>
+    <!-- Elemen Teks -->
+    <div class="pesan" id="teks">Bukan PHP, Ini Keajaiban CSS!</div>
 
     <script>
-        // Logika interaktif untuk menampilkan info detail saat kartu diketuk
-        function tampilInfo(topik) {
-            const panel = document.getElementById('panel');
-            const title = document.getElementById('panel-title');
-            const desc = document.getElementById('panel-desc');
-
-            // Data teks informasi informatika
-            const data = {
-                ai: {
-                    judul: "Kecerdasan Buatan (Artificial Intelligence)",
-                    teks: "AI mencakup teknologi modern seperti Machine Learning dan Deep Learning. Teknologi ini digunakan pada ChatGPT, mobil otonom tanpa pengemudi, hingga algoritma rekomendasi di YouTube dan TikTok Anda."
-                },
-                cyber: {
-                    judul: "Keamanan Siber (Cyber Security)",
-                    teks: "Fokus pada perlindungan jaringan, enkripsi data, dan pencegahan peretasan. Di era digital saat ini, keahlian ini sangat krusial untuk melindungi privasi data pribadi dan infrastruktur penting negara."
-                },
-                dev: {
-                    judul: "Rekayasa Perangkat Lunak (Software Engineering)",
-                    teks: "Bukan sekadar mengetik kode, pilar ini mempelajari arsitektur kode yang rapi, pembuatan database, hingga sistem cloud. Halaman web yang sedang Anda bangun saat ini adalah produk dari pilar ini!"
-                }
-            };
-
-            // Masukkan data sesuai kartu yang diketuk
-            title.innerText = data[topik].judul;
-            desc.innerText = data[topik].teks;
-
-            // Tampilkan panel dengan animasi
-            panel.style.display = "block";
+        // Efek interaktif opsional jika hati diketuk di layar tablet
+        function tambahEfek() {
+            const teks = document.getElementById('teks');
+            teks.innerText = "❤️ CODE WITH LOVE ❤️";
+            teks.style.color = "#ff2a74";
+            teks.style.textShadow = "0 0 15px #ff2a74";
         }
     </script>
 </body>

@@ -1,1 +1,102 @@
 <h1>halooo semuaaaaa</h1>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Card Redmi Pad</title>
+    <style>
+        /* Mengatur latar belakang menjadi gelap dan elemen di tengah */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0d1117;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Desain Kartu Utama */
+        .card {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        /* Efek Cahaya Neon di Belakang Kartu */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #ff007f, #7f00ff, #00f0ff, #ff007f);
+            border-radius: 22px;
+            z-index: -1;
+            background-size: 400%;
+            filter: blur(20px);
+            opacity: 0.8;
+            animation: gantiWarna 10s linear infinite;
+        }
+
+        /* Animasi Pergerakan Cahaya Neon */
+        @keyframes gantiWarna {
+            0% { background-position: 0 0; }
+            50% { background-position: 300% 0; }
+            100% { background-position: 0 0; }
+        }
+
+        h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 0.9rem;
+            color: #8b949e;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Elemen Kartu -->
+    <div class="card" onclick="sentuhKartu()">
+        <h2 id="judul">Ketuk Aku!</h2>
+        <p id="pesan">Kode pertama saya di Redmi Pad Pro</p>
+    </div>
+
+    <script>
+        // Efek interaktif unik saat layar tablet diketuk
+        function sentuhKartu() {
+            const judul = document.getElementById('judul');
+            const pesan = document.getElementById('pesan');
+            
+            // Mengubah teks secara acak saat diketuk
+            if (judul.innerText === "Ketuk Aku!") {
+                judul.innerText = "✨ MAGIC! ✨";
+                judul.style.color = "#00f0ff";
+                pesan.innerText = "Kodenya berhasil berjalan dengan lancar!";
+            } else {
+                judul.innerText = "Ketuk Aku!";
+                judul.style.color = "white";
+                pesan.innerText = "Kode pertama saya di Redmi Pad Pro";
+            }
+        }
+    </script>
+</body>
+</html>
